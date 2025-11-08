@@ -1,0 +1,25 @@
+// api 语法版本
+syntax = "v1"
+
+info (
+	author: "yys"
+	desc:   "a11231"
+	date:   "2022-01-08"
+)
+
+type (
+	UserinfoReq {
+		UserId int64 `json:"userId"`
+	}
+	UserInfoResp {
+		UserId   int64  `json:"userId"`
+		Nickname string `json:"nickname"`
+	}
+)
+
+service user-api {
+	@doc "获取用户信息"
+	@handler userInfo
+	post /user/info (UserinfoReq) returns (UserInfoResp)
+}
+
